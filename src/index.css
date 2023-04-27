@@ -1,3 +1,27 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer base{
+    body {
+        @apply bg-light-grayish-cyan min-h-screen flex justify-center items-center font-space-mono;
+    }
+
+    #root {
+        @apply flex flex-col items-center gap-8;
+    }
+
+    svg {
+        @apply m-0;
+    }  
+}
+
+@layer components {
+    .input {
+        @apply bg-very-light-grayish-cyan px-4 py-2 mb-2;
+    }
+
+    .btn {
+        @apply text-white bg-very-dark-cyan rounded-md w-full font-bold text-lg py-2;
+    }
+}
