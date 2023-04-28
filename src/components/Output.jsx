@@ -10,8 +10,8 @@ export function Output({data, setData, setFormData}) {
     }
 
   return (
-    <div className="bg-very-dark-cyan mt-10 flex flex-col gap-8 justify-between rounded-lg p-8 md:mt-0 
-    md:min-w-[213px]">
+    <div className="bg-very-dark-cyan mt-4 flex flex-col gap-4 justify-between rounded-lg p-4 md:mt-0 md:gap-8
+    md:p-8 md:min-w-[213px]">
       <div className="mt-4 flex flex-col gap-6">
         <div className="flex justify-between">
           <div>

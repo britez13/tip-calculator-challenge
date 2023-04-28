@@ -24,7 +24,8 @@ function App() {
   return (
     <>
       <Logo />
-      <div className="bg-white px-6 py-6 rounded-2xl md:grid md:grid-cols-2 md:gap-6 md:max-w-[800px]">
+      <div className="bg-white px-4 py-4 rounded-2xl md:grid md:grid-cols-2 md:gap-6 md:max-w-[800px] 
+      md:px-6 md:py-6">
         <Form formData={formData} setFormData={setFormData} setData={setData} />
         <Output data={data} setData={setData} setFormData={setFormData} />
       </div>

@@ -76,13 +76,11 @@ export function Form({ setData, formData, setFormData }) {
       tipPercentage: parseInt(percentageValue),
     }));
 
-    // console.log(event.target.innerText.substring(0, event.target.innerText.length - 1));
-    // console.log(e);
   }
 
   return (
     <form
-      className="flex flex-col gap-8"
+      className="flex flex-col gap-4 md:gap-8"
       onSubmit={(event) => event.preventDefault()}
     >
       <div className="flex flex-col">
@@ -148,7 +146,7 @@ export function Form({ setData, formData, setFormData }) {
           })}
         </div>
       </div>
-      <div className="">
+      <div>
         <label
           className="flex flex-col relative text-dark-grayish-cyan font-bold placeholder:text-right
                  placeholder:text-very-dark-cyan placeholder:mix-blend-normal placeholder:opacity-[0.35] placeholder:font-bold text-xl"
@@ -159,9 +157,9 @@ export function Form({ setData, formData, setFormData }) {
             id="people"
             name="numberOfPeople"
             value={formData.numberOfPeople}
-            className={`input text-right mt-2 outline-strong-cyan border rounded-md ${
+            className={`input text-right mt-1 outline-strong-cyan border rounded-md ${
               isInputEmpty ? " border-redish" : "border-transparent"
-            }`}
+            } md:mt-2`}
             type="number"
             placeholder="0"
             onChange={handleChange}
