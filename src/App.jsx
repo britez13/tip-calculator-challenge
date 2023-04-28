@@ -3,6 +3,7 @@ import { ReactComponent as Logo } from "./assets/logo.svg";
 import { Form } from "./components/Form";
 import Output from "./components/Output";
 
+// Define inicial values
 export const initialData = {
   tipAmountPerPerson: 0,
   totalPerPerson: 0,
@@ -17,8 +18,9 @@ export const initialFormData = {
 
 function App() {
 
-  const [data, setData] = useState(initialData)
 
+  // Define states
+  const [data, setData] = useState(initialData)
   const [formData, setFormData] = useState(initialFormData);
 
   return (

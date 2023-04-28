@@ -4,30 +4,40 @@ import { ReactComponent as IconPerson } from "../assets/icon-person.svg";
 import { initialData } from "../App";
 
 export function Form({ setData, formData, setFormData }) {
+  // State for tracking error message
   const [isInputEmpty, setIsInputEmpty] = useState(false);
 
+  // Define different types of tips availables
   const availableTips = ["5%", "10%", "15%", "25%", "50%", "custom"];
 
+  // Every time formData state changes will run
   useEffect(() => {
-    if (formData.bill && (formData.tipPercentage || formData.customPercentage )) {
+    // I
+    if (
+      formData.bill &&
+      (formData.tipPercentage || formData.customPercentage)
+    ) {
       setIsInputEmpty(true);
     }
 
-    if(!isInputEmpty) {
-        setData(initialData)
+    if (!isInputEmpty) {
+      setData(initialData);
     }
 
+    // If all inputs have been filled will change data related to tip state
     if (
       formData.bill &&
       (formData.tipPercentage || formData.customPercentage) &&
       formData.numberOfPeople
     ) {
-
+      // Based on which is truthy, it select that.
       const percentageToUse = formData.tipPercentage
         ? formData.tipPercentage
         : formData.customPercentage;
 
       setIsInputEmpty(false);
+
+      // Set data that will used to display within Output component
       setData({
         tipAmountPerPerson: Number(
           (parseFloat(formData.bill) * percentageToUse) /
@@ -35,7 +45,8 @@ export function Form({ setData, formData, setFormData }) {
             formData.numberOfPeople
         ).toFixed(2),
         totalPerPerson: Number(
-          (parseFloat(formData.bill) + (formData.bill * percentageToUse) / 100) /
+          (parseFloat(formData.bill) +
+            (formData.bill * percentageToUse) / 100) /
             formData.numberOfPeople
         ).toFixed(2),
       });
@@ -70,12 +81,11 @@ export function Form({ setData, formData, setFormData }) {
       0,
       percentageString.length - 1
     );
-    setFormData({...formData, customPercentage: ''});
+    setFormData({ ...formData, customPercentage: "" });
     setFormData((prev) => ({
       ...prev,
       tipPercentage: parseInt(percentageValue),
     }));
-
   }
 
   return (
@@ -118,7 +128,7 @@ export function Form({ setData, formData, setFormData }) {
                 <div id="custom" className="custom inline" key={tip}>
                   <input
                     className="w-full py-2 px-2 font-bold text-xl bg-very-light-grayish-cyan text-very-dark-cyan text-right outline-strong-cyan
-                     placeholder-very-dark-cyan placeholder:text-center caret-strong-cyan"
+                     placeholder-very-dark-cyan placeholder:text-center caret-strong-cyan rounded-md"
                     type="number"
                     id="custom"
                     name="customPercentage"
