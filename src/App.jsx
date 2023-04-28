@@ -3,22 +3,30 @@ import { ReactComponent as Logo } from "./assets/logo.svg";
 import { Form } from "./components/Form";
 import Output from "./components/Output";
 
+export const initialData = {
+  tipAmountPerPerson: 0,
+  totalPerPerson: 0,
+};
+
+export const initialFormData = {
+  bill: "",
+  tipPercentage: "",
+  customPercentage: "",
+  numberOfPeople: "",
+};
+
 function App() {
 
-  const [data, setData] = useState({
-    bill: 0,
-    tipPercentage: 0,
-    numberOfPeople: 0,
-  })
+  const [data, setData] = useState(initialData)
 
-
+  const [formData, setFormData] = useState(initialFormData);
 
   return (
     <>
       <Logo />
       <div className="bg-white px-6 py-6 rounded-2xl md:grid md:grid-cols-2 md:gap-6 md:max-w-[800px]">
-        <Form setData={setData} data={data} />
-        <Output data={data} />
+        <Form formData={formData} setFormData={setFormData} setData={setData} />
+        <Output data={data} setData={setData} setFormData={setFormData} />
       </div>
     </>
   );
